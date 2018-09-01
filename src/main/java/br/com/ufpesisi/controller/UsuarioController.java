@@ -1,5 +1,6 @@
 package br.com.ufpesisi.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +30,28 @@ public class UsuarioController {
 	@ApiOperation(value="Salva um novo usuário")
 	public Usuario inserir(@RequestBody Usuario usuario) {
 		
-		return this.usuarioRepository.save(usuario);
+		
+		Usuario usuarioSalvo = this.usuarioRepository.save(usuario); 
+		
+		usuarioSalvo.setSenha("**********");
+		
+		return usuarioSalvo;
 	}
 	
 	@GetMapping("/usuario")
 	@ApiOperation(value="Lista todos os usuários cadastrado")
 	public List<Usuario> list(){
-		return this.usuarioRepository.findAll();
+		
+		List<Usuario> usuario = this.usuarioRepository.findAll(); 
+		
+		List<Usuario> user = new ArrayList<>();
+		for(Usuario temp : usuario) {
+			temp.setSenha("**********");
+			
+			user.add(temp);
+		}
+		
+		return user;
 	}
 	
 	@DeleteMapping("/{id}usuario")

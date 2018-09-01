@@ -1,11 +1,20 @@
 package br.com.ufpesisi.models;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+
+import br.com.ufpesisi.models.Uf;
 
 
 @Entity
@@ -20,10 +29,35 @@ public class Usuario {
 	private String nome;
 	
 	@NotNull
-	private long idade;
+	@Column(name="data_nascimento")
+	private LocalDate dataNascimento;
 	
 	@NotNull
-	private String comentarios;
+	private String email;
+	
+	@NotNull
+	private String endereco;
+	
+	
+	private String complemento;
+	
+	@NotNull
+	private String cep;
+	
+	@NotNull
+	private String bairro;
+	
+	@NotNull
+	private String cidade;
+	
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	private Uf uf; 
+	
+	@NotNull
+	private String senha;
+	
+	
 	
 	
 
@@ -43,21 +77,79 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public long getIdade() {
-		return idade;
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setIdade(long idade) {
-		this.idade = idade;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
-	public String getComentarios() {
-		return comentarios;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setComentarios(String comentarios) {
-		this.comentarios = comentarios;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public Uf getUf() {
+		return uf;
+	}
+
+	public void setUf(Uf uf) {
+		this.uf = uf;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
+	
+
 
 }
