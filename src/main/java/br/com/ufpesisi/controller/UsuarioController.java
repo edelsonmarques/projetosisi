@@ -3,6 +3,7 @@ package br.com.ufpesisi.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
 @Api(value="API REST Usuarios")
 @RestController
 @RequestMapping("/api")
-public class UsuarioController {
+public class UsuarioController{
 	
 	@Autowired
 	UsuarioRepository usuarioRepository;
@@ -30,7 +31,10 @@ public class UsuarioController {
 	@ApiOperation(value="Salva um novo usuário")
 	public Usuario inserir(@RequestBody Usuario usuario) {
 		
+		//Essa linha abaixo está encriptografando a senha.
+		usuario.setSenha(BCrypt.hashpw(usuario.getSenha(), BCrypt.gensalt()));
 		
+		//Essa linha está salvando o novo usuario no banco com a senha criptografada.
 		Usuario usuarioSalvo = this.usuarioRepository.save(usuario); 
 		
 		usuarioSalvo.setSenha("**********");
