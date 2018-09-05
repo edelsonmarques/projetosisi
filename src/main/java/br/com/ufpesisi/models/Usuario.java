@@ -38,7 +38,6 @@ public class Usuario {
 	@NotNull
 	private String endereco;
 	
-	
 	private String complemento;
 	
 	@NotNull
@@ -57,10 +56,6 @@ public class Usuario {
 	@NotNull
 	private String senha;
 	
-	
-	
-	
-
 	public long getId() {
 		return id;
 	}
@@ -149,7 +144,4 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
-	
-
-
 }
