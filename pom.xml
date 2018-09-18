@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name></name>
-	<description>Demo project for Spring Boot</description>
+	<description>Projeto SISI</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -44,12 +44,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		
-		<dependency>
-			 <groupId>org.postgresql</groupId>
-			 <artifactId>postgresql</artifactId>
-			 <version>42.2.4</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 				
 		<dependency>
