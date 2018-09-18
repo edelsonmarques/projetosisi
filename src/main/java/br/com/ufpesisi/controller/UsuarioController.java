@@ -31,7 +31,7 @@ public class UsuarioController{
 	
 	
 	@PostMapping("/usuario")
-	@ApiOperation(value="Salva um novo usuário")
+	@ApiOperation(tags="Usuario", value="Salva um novo usuário")
 	public Usuario inserir(@RequestBody Usuario usuario) {
 		
 		//Essa linha abaixo está encriptografando a senha.
@@ -46,7 +46,7 @@ public class UsuarioController{
 	}
 	
 	@GetMapping("/usuario")
-	@ApiOperation(value="Lista todos os usuários cadastrado")
+	@ApiOperation(tags="Usuario", value="Lista todos os usuários cadastrado")
 	public List<Usuario> list(){
 		
 		List<Usuario> usuario = this.usuarioRepository.findAll(); 
@@ -62,7 +62,7 @@ public class UsuarioController{
 	}
 	
 	@PutMapping("/{id}usuario")
-	@ApiOperation(value="Atualiza usuário cadastrado")
+	@ApiOperation(tags="Usuario", value="Atualiza usuário cadastrado")
 	public ResponseEntity<Object> updateUsuario(@RequestBody Usuario usuario, @PathVariable long id) {
 
 		Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
@@ -78,7 +78,7 @@ public class UsuarioController{
 	}
 	
 	@DeleteMapping("/{id}usuario")
-	@ApiOperation(value="Deleta um usuario que está cadastrado no sistema")
+	@ApiOperation(tags="Usuario", value="Deleta um usuario que está cadastrado no sistema")
 	public void delete(@PathVariable long id) {
 		
 		this.usuarioRepository.deleteById(id);

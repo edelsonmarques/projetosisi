@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
-import br.com.ufpesisi.models.Uf;
+import br.com.ufpesisi.models.enums.Uf;
 
 
 @Entity

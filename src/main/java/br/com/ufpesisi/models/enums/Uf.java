@@ -1,4 +1,4 @@
-package br.com.ufpesisi.models;
+package br.com.ufpesisi.models.enums;
 
 public enum Uf {
 	
